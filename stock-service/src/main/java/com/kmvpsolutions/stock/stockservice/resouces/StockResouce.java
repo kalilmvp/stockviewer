@@ -1,5 +1,6 @@
 package com.kmvpsolutions.stock.stockservice.resouces;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +29,7 @@ public class StockResouce {
     @Autowired
     private RestTemplate restTemplate;
 
+    @HystrixCommand(fallbackMethod = "fallback")
     @GetMapping("/{userName}")
     public List<Quote> getStocksFromUsername(@PathVariable("userName") String userName) {
         LOGGER.info("Entrou aqui 'StockResouce'");
@@ -39,6 +41,11 @@ public class StockResouce {
                 new ParameterizedTypeReference<List<String>>() {});
 
         return this.getStocksYahoo(quotesFromUsername.getBody());
+    }
+
+    public List<Quote> fallback(String username) {
+        LOGGER.info("Error when getting quotes from username " + username);
+        return null;
     }
 
     private List<Quote> getStocksYahoo(List<String> quotes) {

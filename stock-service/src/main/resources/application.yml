@@ -6,6 +6,13 @@ eureka:
     fetch-registry: true
     serviceUrl:
       defaultZone: http://localhost:8302/eureka/
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
 spring:
   application:
     name: stock-service
