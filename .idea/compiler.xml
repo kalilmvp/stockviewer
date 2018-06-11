@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="database-service" />
+        <module name="service-registry" />
         <module name="stock-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="database-service" target="1.8" />
+      <module name="service-registry" target="1.8" />
       <module name="stock-service" target="1.8" />
     </bytecodeTargetLevel>
   </component>
