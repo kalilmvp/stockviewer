@@ -6,9 +6,4 @@ eureka:
     fetch-registry: true
     serviceUrl:
       defaultZone: http://localhost:8302/eureka/
-spring:
-  application:
-    name: stock-service
-server:
-  port: 8301
 

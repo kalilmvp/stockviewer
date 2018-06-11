@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: eukera-service
+server:
+  port: 8302
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    server:
+      waitTimeInMsWhenSyncEmpty:  0
