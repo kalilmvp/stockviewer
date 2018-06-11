@@ -6,4 +6,17 @@ eureka:
     fetch-registry: true
     serviceUrl:
       defaultZone: http://localhost:8302/eureka/
+spring:
+  application:
+    name: database-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/stockdb
+    username: root
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8300
 
