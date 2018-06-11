@@ -3,6 +3,8 @@ package com.kmvpsolutions.stock.databaseservice.resource;
 import com.kmvpsolutions.stock.databaseservice.model.Quotes;
 import com.kmvpsolutions.stock.databaseservice.repositories.QuoteRepository;
 import com.kmvpsolutions.stock.databaseservice.repositories.entities.Quote;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -11,6 +13,8 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/rest/quotes")
 public class QuoteResource {
+    private static final Logger LOGGER = LoggerFactory.getLogger(QuoteResource.class);
+
     private QuoteRepository quoteRepository;
 
     public QuoteResource(QuoteRepository quoteRepository) {
@@ -19,6 +23,7 @@ public class QuoteResource {
 
     @GetMapping("/{username}")
     public List<String> getQuotes(@PathVariable("username") String username) {
+        LOGGER.info("Entrou aqui 'QuoteResource'");
         return this.getQuotesByUsername(username);
     }
 

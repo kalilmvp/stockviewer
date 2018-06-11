@@ -1,5 +1,7 @@
 package com.kmvpsolutions.stock.stockservice.resouces;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -21,12 +23,15 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/rest/stock")
 public class StockResouce {
+    private static final Logger LOGGER = LoggerFactory.getLogger(StockResouce.class);
 
     @Autowired
     private RestTemplate restTemplate;
 
     @GetMapping("/{userName}")
     public List<Quote> getStocksFromUsername(@PathVariable("userName") String userName) {
+        LOGGER.info("Entrou aqui 'StockResouce'");
+
         ResponseEntity<List<String>> quotesFromUsername = this.restTemplate.exchange(
                 "http://database-service/rest/quotes/" + userName,
                 HttpMethod.GET,
