@@ -1,13 +1,12 @@
-package com.kmvpsolutions.stock.stockservice;
+package com.kmvpsolutions.stock.serviceregistry.serviceregistry;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@EnableEurekaClient
 @SpringBootApplication
-public class StockServiceApplication {
+public class ServiceRegistryApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(StockServiceApplication.class, args);
+        SpringApplication.run(ServiceRegistryApplication.class, args);
     }
 }

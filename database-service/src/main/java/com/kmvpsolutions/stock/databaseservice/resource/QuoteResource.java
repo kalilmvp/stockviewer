@@ -22,7 +22,7 @@ public class QuoteResource {
         return this.getQuotesByUsername(username);
     }
 
-    private List<String> getQuotesByUsername(@PathVariable("username") String username) {
+    private List<String> getQuotesByUsername(String username) {
         return this.quoteRepository.findByUserName(username)
                 .stream()
                 .map(Quote::getQuote)
